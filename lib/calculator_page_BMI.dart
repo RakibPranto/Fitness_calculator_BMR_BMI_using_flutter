@@ -355,15 +355,19 @@ class _CalculatorPageState extends State<CalculatorPage> {
               child: InkWell(
                 onTap: () {
                   bmi = _counter / (height * height) * 10000;
-                  if (bmi < 19) {
+                  if (bmi < 18.5) {
                     result =
                         "Under Weight.Increase Your Calorie intake for a better health. Eat Healthy food and exercise daily.";
                   } else if (bmi < 24) {
                     result =
                         "Normal Weight. Maintain Your Calorie intake for a better health. Eat Healthy food and exercise daily.";
-                  } else if (bmi > 24) {
+                  } else if (bmi < 30) {
                     result =
                         "Over Weight.Decrease Your Calorie intake for a better health. Eat Healthy food and exercise daily.";
+                  }
+                  else if (bmi > 30) {
+                    result =
+                    "Obese.Decrease Your Calorie intake for a better health. Eat Healthy food and exercise daily.";
                   }
                   showDialog(
                       context: context,
