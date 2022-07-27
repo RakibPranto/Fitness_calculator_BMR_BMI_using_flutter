@@ -374,13 +374,14 @@ class _BMRCalculatorState extends State<BMRCalculator> {
                       context: context,
                       builder: (context) {
                         return AlertDialog(
-                          title: const Text("Result!"),
+                          backgroundColor:const Color(0xff0a0e21),
+                          title: const Text("Result!",style:TextStyle(color: Colors.white),),
                           actions: [
                             TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              child: const Text("Ok"),
+                              child: const Text("Ok",style:  TextStyle(color: Colors.white),),
                             ),
                           ],
                           content: SizedBox(
@@ -389,12 +390,12 @@ class _BMRCalculatorState extends State<BMRCalculator> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Your BMR is:${bmr.toStringAsFixed(2)}"),
+                                Text("Your BMR is:${bmr.toStringAsFixed(2)}",style: const TextStyle(color: Colors.white),),
                                 const SizedBox(
                                   height: 5,
                                 ),
                                 Text("You are $result",
-                                    textAlign: TextAlign.justify),
+                                    textAlign: TextAlign.justify,style: const TextStyle(color: Colors.white),),
                               ],
                             ),
                           ),

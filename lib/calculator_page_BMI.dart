@@ -373,13 +373,14 @@ class _CalculatorPageState extends State<CalculatorPage> {
                       context: context,
                       builder: (context) {
                         return AlertDialog(
-                          title: const Text("Result!"),
+                          backgroundColor: const Color(0xff0a0e21),
+                          title: const Text("Result!",style:  TextStyle(color: Colors.white),),
                           actions: [
                             TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              child: const Text("Ok"),
+                              child: const Text("Ok",style:  TextStyle(color: Colors.white),),
                             ),
                           ],
                           content: SizedBox(
@@ -388,9 +389,9 @@ class _CalculatorPageState extends State<CalculatorPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Your BMI is:${bmi.toStringAsFixed(2)}"),
+                                Text("Your BMI is:${bmi.toStringAsFixed(2)}",style: const TextStyle(color: Colors.white),),
                                 Text("Your BMI shows you are at $result",
-                                    textAlign: TextAlign.justify),
+                                    textAlign: TextAlign.justify,style: const TextStyle(color: Colors.white),),
                               ],
                             ),
                           ),
