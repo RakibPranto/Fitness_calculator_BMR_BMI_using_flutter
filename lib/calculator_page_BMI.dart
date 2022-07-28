@@ -384,7 +384,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
                             ),
                           ],
                           content: SizedBox(
-                            height: MediaQuery.of(context).size.height * .16,
+                            height: MediaQuery.of(context).size.height * .20,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,

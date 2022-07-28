@@ -39,8 +39,7 @@ class _HomePageState extends State<HomePage> {
                     backgroundColor: const Color(0xff4b4b5b).withOpacity(0.6),
                     child: const CircleAvatar(
                       radius: 88,
-                      backgroundImage: NetworkImage(
-                          "https://cdn.wallpapersafari.com/24/86/r3j2VO.jpg"),
+                      backgroundImage: AssetImage("images/img.jpg"),
                     ),
                   ),
                 ),
