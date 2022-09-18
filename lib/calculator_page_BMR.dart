@@ -352,80 +352,81 @@ class _BMRCalculatorState extends State<BMRCalculator> {
           ),
           Expanded(
               flex: 1,
-              child: InkWell(
-                onTap: () {
-                  if (isMale == true) {
-                    bmr = (9.99 * _counter) +
-                        (6.25 * height) -
-                        (4.92 * _counter1) +
-                        5;
-                    result =
-                        "Eating fewer calories than your body needs to function will result in weight loss. To lose 1 pound a week, reduce your daily intake by 500 calories.";
-                  } else if (isMale == false) {
-                    bmr = (9.99 * _counter) +
-                        (6.25 * height) -
-                        (4.92 * _counter1) -
-                        161;
-                    result =
-                        "Eating fewer calories than your body needs to function will result in weight loss. To lose 1 pound a week, reduce your daily intake by 500 calories.";
-                  }
+              child: Padding(
+                padding: const EdgeInsets.only(left: 25, right: 25, bottom: 10),
+                child: InkWell(
+                  onTap: () {
+                    if (isMale == true) {
+                      bmr = (9.99 * _counter) +
+                          (6.25 * height) -
+                          (4.92 * _counter1) +
+                          5;
+                      result =
+                          "Eating fewer calories than your body needs to function will result in weight loss. To lose 1 pound a week, reduce your daily intake by 500 calories.";
+                    } else if (isMale == false) {
+                      bmr = (9.99 * _counter) +
+                          (6.25 * height) -
+                          (4.92 * _counter1) -
+                          161;
+                      result =
+                          "Eating fewer calories than your body needs to function will result in weight loss. To lose 1 pound a week, reduce your daily intake by 500 calories.";
+                    }
 
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          backgroundColor: const Color(0xff0a0e21),
-                          title: const Text(
-                            "Result!",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: const Text(
-                                "Ok",
-                                style: TextStyle(color: Colors.white),
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            backgroundColor: const Color(0xff0a0e21),
+                            title: const Text(
+                              "Result!",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text(
+                                  "Ok",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ],
+                            content: SizedBox(
+                              height: MediaQuery.of(context).size.height * .20,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Your BMR is:${bmr.toStringAsFixed(2)}",
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    "You are $result",
+                                    textAlign: TextAlign.justify,
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
-                          content: SizedBox(
-                            height: MediaQuery.of(context).size.height * .20,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Your BMR is:${bmr.toStringAsFixed(2)}",
-                                  style: const TextStyle(color: Colors.white),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  "You are $result",
-                                  textAlign: TextAlign.justify,
-                                  style: const TextStyle(color: Colors.white),
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      });
-                },
-                child: Container(
-                  height: 20,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                      color: Color(0xffea1554),
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(30),
-                          bottomRight: Radius.circular(30))),
-                  child: const Center(
-                    child: Text(
-                      "CALCULATE",
-                      style: TextStyle(color: Colors.white, fontSize: 25),
+                          );
+                        });
+                  },
+                  child: Container(
+                    height: 20,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: const Color(0xffea1554),
+                        borderRadius: BorderRadius.circular(12)),
+                    child: const Center(
+                      child: Text(
+                        "CALCULATE",
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
                     ),
                   ),
                 ),

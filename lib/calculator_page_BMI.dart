@@ -352,64 +352,76 @@ class _CalculatorPageState extends State<CalculatorPage> {
           ),
           Expanded(
               flex: 1,
-              child: InkWell(
-                onTap: () {
-                  bmi = _counter / (height * height) * 10000;
-                  if (bmi < 18.5) {
-                    result =
-                        "Under Weight.Increase Your Calorie intake for a better health. Eat Healthy food and exercise daily.";
-                  } else if (bmi < 24) {
-                    result =
-                        "Normal Weight. Maintain Your Calorie intake for a better health. Eat Healthy food and exercise daily.";
-                  } else if (bmi < 30) {
-                    result =
-                        "Over Weight.Decrease Your Calorie intake for a better health. Eat Healthy food and exercise daily.";
-                  }
-                  else if (bmi > 30) {
-                    result =
-                    "Obese.Decrease Your Calorie intake for a better health. Eat Healthy food and exercise daily.";
-                  }
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          backgroundColor: const Color(0xff0a0e21),
-                          title: const Text("Result!",style:  TextStyle(color: Colors.white),),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: const Text("Ok",style:  TextStyle(color: Colors.white),),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 25, right: 25, bottom: 10),
+                child: InkWell(
+                  onTap: () {
+                    bmi = _counter / (height * height) * 10000;
+                    if (bmi < 18.5) {
+                      result =
+                          "Under Weight.Increase Your Calorie intake for a better health. Eat Healthy food and exercise daily.";
+                    } else if (bmi < 24) {
+                      result =
+                          "Normal Weight. Maintain Your Calorie intake for a better health. Eat Healthy food and exercise daily.";
+                    } else if (bmi < 30) {
+                      result =
+                          "Over Weight.Decrease Your Calorie intake for a better health. Eat Healthy food and exercise daily.";
+                    } else if (bmi > 30) {
+                      result =
+                          "Obese.Decrease Your Calorie intake for a better health. Eat Healthy food and exercise daily.";
+                    }
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            backgroundColor: const Color(0xff0a0e21),
+                            title: const Text(
+                              "Result!",
+                              style: TextStyle(color: Colors.white),
                             ),
-                          ],
-                          content: SizedBox(
-                            height: MediaQuery.of(context).size.height * .20,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Your BMI is:${bmi.toStringAsFixed(2)}",style: const TextStyle(color: Colors.white),),
-                                Text("Your BMI shows you are at $result",
-                                    textAlign: TextAlign.justify,style: const TextStyle(color: Colors.white),),
-                              ],
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text(
+                                  "Ok",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ],
+                            content: SizedBox(
+                              height: MediaQuery.of(context).size.height * .20,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Your BMI is:${bmi.toStringAsFixed(2)}",
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                  Text(
+                                    "Your BMI shows you are at $result",
+                                    textAlign: TextAlign.justify,
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        );
-                      });
-                },
-                child: Container(
-                  height: 20,
-                  width: double.infinity,
-                  decoration: const BoxDecoration(
-                      color: Color(0xffea1554),
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(30),
-                          bottomRight: Radius.circular(30))),
-                  child: const Center(
-                    child: Text(
-                      "CALCULATE",
-                      style: TextStyle(color: Colors.white, fontSize: 25),
+                          );
+                        });
+                  },
+                  child: Container(
+                    height: 20,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: const Color(0xffea1554),
+                        borderRadius: BorderRadius.circular(12)),
+                    child: const Center(
+                      child: Text(
+                        "CALCULATE",
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
                     ),
                   ),
                 ),
